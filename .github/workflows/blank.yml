@@ -30,8 +30,10 @@ jobs:
       - name: Run Postman tests and export HTML report
   
         run: |
-          newman run 1.json \
+          newman run 2.json \
           -e TW1.json \
+          --env-var "admin=${{ secrets.USERNAME }}" \
+          --env-var "password=${{ secrets.PASSWORD }}" \
             --reporters cli,htmlextra \
             --reporter-htmlextra-export reports/results.html
 
